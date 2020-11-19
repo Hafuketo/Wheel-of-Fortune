@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+body {
+  font-family: Open Sans;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  overflow: hidden;
+  background: #150353;
+  background-size: cover;
+}
+
+#app {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.marker {
+  position: absolute;
+  width: 60px;
+  left: 220px; /* specific pixel value*/
+  top: -45px;
+  z-index: 2;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+  border: 10px dotted gold;
+  overflow: hidden;
+  transition: all ease 5s;
+}
+span {
+  width: 50%;
+  height: 50%;
+  display: inline-block;
+  position: absolute;
+}
+.span1 {
+  clip-path: polygon(0 92%, 100% 50%, 0 8%);
+  background-color: purple;
+  top: 120px;
+  left: 0;
+}
+.span2 {
+  clip-path: polygon(100% 92%, 0 50%, 100% 8%);
+  background-color: teal;
+  top: 120px;
+  right: 0;
+}
+.span3 {
+  clip-path: polygon(50% 0%, 8% 100%, 92% 100%);
+  background-color: red;
+  bottom: 0;
+  left: 120px;
+}
+.span4 {
+  clip-path: polygon(50% 100%, 92% 0, 8% 0);
+  background-color: darkblue;
+  top: 0;
+  left: 120px;
+}
+
+/*Rotate the values*/
+.box1 .span3 b,
+.box2 .span3 b {
+  transform: translate(-50%, 0%) rotate(180deg);
+}
+.box1 .span1 b,
+.box2 .span1 b {
+  transform: translate(-100%, -50%) rotate(-90deg);
+}
+
+.box1 .span4 b,
+.box2 .span4 b {
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.box1 .span2 b,
+.box2 .span2 b {
+  transform: translate(0%, -50%) rotate(90deg);
+}
+
+.box2 {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-135deg);
+}
+span b {
+  padding-top: 10px;
+  width: 100px;
+  height: 100px;
+  line-height: 40px;
+  border-radius: 50%;
+  font-size: 34px;
+  text-align: center;
+  background-color: gold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 3px 3px 0 #717171;
+}
+
+/* wheel2 end */
+
+.spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 4px solid gold;
+  background-color: green;
+  color: gold;
+  box-shadow: 0 5px 20px #000;
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+}
+.spin:active {
+  width: 70px;
+  height: 70px;
+  font-size: 20px;
+}
+
+/* animation related */
+
+.blur {
+  animation: blur 5s;
+}
+
+.darken {
+  animation: darken 5s;
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(1.5px);
+  }
+  80% {
+    filter: blur(1px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+
+@keyframes darken {
+  0% {
+    background-color: grey;
+  }
+  99% {
+    background-color: grey;
+  }
+  100% {
+    background-color: green;
+  }
+}
